@@ -1,11 +1,30 @@
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Priority</th>
-        <th>Description</th>
-        <th>Status</th>
-    </tr>
-    <button id="addButton">Add</button>
-</table>
+<div>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Priority</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>    
+    </table>
+</div>
 
-<script src="tableManager.js"></script>
+<div>
+    <form id = "bugForm">
+    <label for="fname">Title:</label>
+    <input type="text" id="fname" name="fname"><br><br>
+    <label for="fdescription">Description:</label>
+    <input type="text" id="fdescription" name="fdescription"><br><br>
+    <label for="fpriority">Priority:</label>
+    <select id="fpriority" name="fpriority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select><br><br> 
+    </form>
+
+    <button id="addButton">Add</button>   
+</div>
+
+<script src="main.js"></script>
+
