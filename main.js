@@ -1,5 +1,9 @@
 let table = document.querySelector("table");
 
+function GetRows() {
+    return document.getElementsByClassName("bugRow");
+}
+
 function AddRow() {
     let title = document.getElementById("fname").value;
     let description = document.getElementById("fdescription").value;
@@ -8,17 +12,38 @@ function AddRow() {
     CreateRow(title, description, priority);
 }
 
+function DeleteRow(index) {
+    let rows = GetRows();
+
+    rows[index].remove();
+}
+
+function EditRow(index) {
+    let rows = GetRows();
+}
+
 function CreateRow(title, description, priority) {
-    let newRow = `<tr>
+    let newRow = `<tr class="bugRow">
         <td>${title}</td>
         <td>${description}</td>
         <td>${priority}</td>
         <td><input type="checkbox"></td>
-        <td><button id="editButton">Edit</button></td>
-        <td><button id="deleteButton">Delete</button></td>
+        <td><button class="editButton">Edit</button></td>
+        <td><button class="deleteButton">Delete</button></td>
     </tr>`;
     table.innerHTML += newRow;
 }
 
 let addButton = document.getElementById("addButton");
 addButton.addEventListener("click", AddRow);
+
+table.addEventListener("click", (event) => {
+    if (event.target.classList.contains("deleteButton")) {
+        let index = Array.from(document.getElementsByClassName("deleteButton")).indexOf(event.target);
+        DeleteRow(index);
+    }
+    if (event.target.classList.contains("editButton")) {
+        let index = Array.from(document.getElementsByClassName("editButton")).indexOf(event.target);
+        EditRow(index);
+    }
+});
