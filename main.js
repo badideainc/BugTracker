@@ -13,7 +13,9 @@ function CreateRow(title, description, priority) {
         <td>${title}</td>
         <td>${description}</td>
         <td>${priority}</td>
-        <td>Open</td>
+        <td><input type="checkbox"></td>
+        <td><button id="editButton">Edit</button></td>
+        <td><button id="deleteButton">Delete</button></td>
     </tr>`;
     table.innerHTML += newRow;
 }
