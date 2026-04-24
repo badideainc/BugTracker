@@ -1,12 +1,14 @@
 let table = document.querySelector("table");
 
+const emptyRow = `<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>`;
+
 function AddRow() {
-    table.innerHTML += `<tr>
-        <td>1</td>
-        <td>High</td>
-        <td>Example bug description</td>
-        <td>Open</td>
-    </tr>`;
+    table.innerHTML += emptyRow;
 }
 
 let addButton = document.getElementById("addButton");
