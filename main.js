@@ -12,6 +12,10 @@ function AddRow() {
     CreateRow(title, description, priority);
 }
 
+export function AddRowFromFile(title, description, priority) {
+    CreateRow(title, description, priority)
+}
+
 function DeleteRow(index) {
     let rows = GetRows();
 
