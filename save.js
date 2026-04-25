@@ -28,10 +28,10 @@ function SaveDataToFile() {
 }
 
 function FormatData(cells) {
-    const title = cells[0]?.innerText?.trim() ?? "";
-    const description = cells[1]?.innerText?.trim() ?? "";
-    const priority = cells[2]?.innerText?.trim() ?? "";
-    const status = cells[3]?.innerText?.trim() ?? "";
+    const title = cells[0]?.innerText ?? "";
+    const description = cells[1]?.innerText ?? "";
+    const priority = cells[2]?.innerText ?? "";
+    const status = cells[3].querySelector('input[type="checkbox"]')?.checked ? true : false;
     return new BugData(title, description, priority, status);
 }
 async function LoadDataFromFile() {
@@ -40,6 +40,9 @@ async function LoadDataFromFile() {
     let text = await file.text();
 
     const data = JSON.parse(text)
+
+    const title =document.getElementById("fileTitle");
+    title.value = file.name.replace('.json', '');
 
     data.rows.forEach(row => {
         AddRowFromFile(row.title, row.description, row.priority, row.status)
