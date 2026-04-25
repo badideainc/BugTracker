@@ -1,4 +1,4 @@
-import { GetRows } from "./main.js";
+import { GetRows, AddRowFromFile } from "./main.js";
 
 function SaveDataToFile() {
     const rows = GetRows();
@@ -19,7 +19,7 @@ function SaveDataToFile() {
     a.href = url;
     a.download = 'bugdata.json';
     document.body.appendChild(a);
-    
+
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
@@ -32,13 +32,16 @@ function FormatData(cells) {
     const status = cells[3]?.innerText?.trim() ?? "";
     return new BugData(title, description, priority, status);
 }
+async function LoadDataFromFile() {
+    const file = document.getElementById("importFile").files[0];
 
-function FormatFile(data) {
+    let text = await file.text();
 
-}
+    const data = JSON.parse(text)
 
-function LoadDataFromFile() {
-
+    data.rows.forEach(row => {
+        AddRowFromFile(row.title, row.description, row.priority)
+    });
 }
 
 class BugTableData {
@@ -57,8 +60,7 @@ class BugData {
 }
 
 let saveButton = document.getElementById("exportFile");
-if (saveButton && typeof saveButton.addEventListener === 'function') {
-    saveButton.addEventListener("click", SaveDataToFile);
-} else {
-    console.warn('Save button not found or not an element: exportFile');
-}
+saveButton.addEventListener("click", SaveDataToFile);
+
+let loadButton = document.getElementById("importFile");
+loadButton.addEventListener("change", LoadDataFromFile);
