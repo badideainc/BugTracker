@@ -9,11 +9,11 @@ function AddRow() {
     let description = document.getElementById("fdescription").value;
     let priority = document.getElementById("fpriority").value;
 
-    CreateRow(title, description, priority);
+    CreateRow(title, description, priority, false);
 }
 
-export function AddRowFromFile(title, description, priority) {
-    CreateRow(title, description, priority)
+export function AddRowFromFile(title, description, priority, status) {
+    CreateRow(title, description, priority, status);
 }
 
 function DeleteRow(index) {
@@ -26,16 +26,17 @@ function EditRow(index) {
     let rows = GetRows();
 }
 
-function CreateRow(title, description, priority) {
-    let newRow = `<tr class="bugRow">
+function CreateRow(title, description, priority, status) {
+    const checked = status ? 'checked' : '';
+    const newRow = `<tr class="bugRow">
         <td>${title}</td>
         <td>${description}</td>
         <td class="${priorityColor(priority)}">${priority}</td>
-        <td><input type="checkbox"></td>
+        <td><input type="checkbox" ${checked}></td>
         <td><button class="editButton">Edit</button></td>
         <td><button class="deleteButton">Delete</button></td>
     </tr>`;
-    table.innerHTML += newRow;
+    table.insertAdjacentHTML('beforeend', newRow);
 }
 
 function priorityColor(priority) {
