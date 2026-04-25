@@ -30,12 +30,25 @@ function CreateRow(title, description, priority) {
     let newRow = `<tr class="bugRow">
         <td>${title}</td>
         <td>${description}</td>
-        <td>${priority}</td>
+        <td class="${priorityColor(priority)}">${priority}</td>
         <td><input type="checkbox"></td>
         <td><button class="editButton">Edit</button></td>
         <td><button class="deleteButton">Delete</button></td>
     </tr>`;
     table.innerHTML += newRow;
+}
+
+function priorityColor(priority) {
+    switch (priority) {
+        case "LOW":
+            return "tdGreen";
+        case "MEDIUM":
+            return "tdYellow";
+        case "HIGH":
+            return "tdRed";
+        default:
+            return "white";
+    }
 }
 
 let addButton = document.getElementById("addButton");
