@@ -1,15 +1,36 @@
+body {
+    margin: 1rem;
+    background-color: black;
+    color: white;
+}
+
 table {
-    display: block;
     width: 100%;
-    border-bottom: 50em;
+    border-collapse: collapse;
 }
 
 div {
-    display: block;
     width: 100%;
-    border-bottom: 150em;
+}
+
+section {
+    margin: 1rem 0;
+    padding: 0.75rem;
 }
 
 #saveSection {
     display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Improve table readability */
+th, td {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.bugRow td input[type="checkbox"] {
+    transform: scale(1.1);
 }
