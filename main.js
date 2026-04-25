@@ -1,6 +1,6 @@
 let table = document.querySelector("table");
 
-function GetRows() {
+export function GetRows() {
     return document.getElementsByClassName("bugRow");
 }
 
