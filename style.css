@@ -1,6 +1,6 @@
 body {
     margin: 1rem;
-    background-color: black;
+    background-color: #19161a;
     color: white;
 }
 
@@ -33,4 +33,17 @@ th, td {
 
 .bugRow td input[type="checkbox"] {
     transform: scale(1.1);
+}
+
+.tdGreen {
+    color: lightgreen;
+
+}
+
+.tdYellow {
+    color: lightsalmon;
+}
+
+.tdRed {
+    color: lightcoral;
 }
