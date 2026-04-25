@@ -3,6 +3,8 @@ import { GetRows, AddRowFromFile } from "./main.js";
 function SaveDataToFile() {
     const rows = GetRows();
 
+    const title = document.getElementById("fileTitle").value;
+
     if (!rows || rows.length === 0) {
         alert("No data to save");
         return;
@@ -17,7 +19,7 @@ function SaveDataToFile() {
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'bugdata.json';
+    a.download = title ? `${title}.json` : 'bugdata.json';
     document.body.appendChild(a);
 
     a.click();
@@ -40,7 +42,7 @@ async function LoadDataFromFile() {
     const data = JSON.parse(text)
 
     data.rows.forEach(row => {
-        AddRowFromFile(row.title, row.description, row.priority)
+        AddRowFromFile(row.title, row.description, row.priority, row.status)
     });
 }
 
