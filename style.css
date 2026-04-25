@@ -1,0 +1,15 @@
+table {
+    display: block;
+    width: 100%;
+    border-bottom: 50em;
+}
+
+div {
+    display: block;
+    width: 100%;
+    border-bottom: 150em;
+}
+
+#saveSection {
+    display: flex;
+}
