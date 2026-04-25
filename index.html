@@ -9,34 +9,39 @@
     <input type="file" id="importFile">
     <button id="exportFile">Export</button>
 </section>
+    
+<section id = "tableSection">
+    <div>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Priority</th>           
+                <th>Status</th>
+            </tr>    
+        </table>
+    </div>
+</section>
 
-<div>
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Priority</th>           
-            <th>Status</th>
-        </tr>    
-    </table>
-</div>
+<section id="formSection">
+    <div>
+        <form id = "bugForm">
+        <label for="fname">Title:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="fdescription">Description:</label>
+        <input type="text" id="fdescription" name="fdescription"><br><br>
+        <label for="fpriority">Priority:</label>
+        <select id="fpriority" name="fpriority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select><br><br> 
+        </form>
 
-<div>
-    <form id = "bugForm">
-    <label for="fname">Title:</label>
-    <input type="text" id="fname" name="fname"><br><br>
-    <label for="fdescription">Description:</label>
-    <input type="text" id="fdescription" name="fdescription"><br><br>
-    <label for="fpriority">Priority:</label>
-    <select id="fpriority" name="fpriority">
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-    </select><br><br> 
-    </form>
+        <button id="addButton">Add</button>   
+    </div>
+</section>
 
-    <button id="addButton">Add</button>   
-</div>
 
 <script type="module" src="main.js"></script>
 <script type="module" src="save.js"></script>
