@@ -23,7 +23,16 @@ function DeleteRow(index) {
 }
 
 function EditRow(index) {
-    let rows = GetRows();
+    let row = GetRows()[index];
+
+    let title = prompt("Enter new title", row.cells[0].innerText);
+    let description = prompt("Enter new description", row.cells[1].innerText);
+    let priority = prompt("Enter new priority (LOW, MEDIUM, HIGH)", row.cells[2].innerText);
+
+    row.cells[0].innerText = title;
+    row.cells[1].innerText = description;
+    row.cells[2].innerText = priority;
+    row.cells[2].className = priorityColor(priority);
 }
 
 function CreateRow(title, description, priority, status) {
